@@ -33,7 +33,7 @@ def generate_dashboard():
     ax.set_ylim(df["temp_f"].min() - 5, df["temp_f"].max() + 8)
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%m/%d %H:%M"))
     plt.xticks(rotation=45)
-    ax.set_title("My City Temperature Dashboard")
+    ax.set_title("Milpitas Temperature Dashboard")
     ax.set_ylabel("Temperature (°F)")
     ax.legend()
     plt.tight_layout()
