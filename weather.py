@@ -34,10 +34,6 @@ def generate_dashboard(df):
     )
     fig.write_html("dashboard.html", include_plotlyjs="cdn")
     print("Dashboard saved to dashboard.html")
-    df = pd.read_csv("daily_log.csv", skipinitialspace=True)
-    df["datetime"] = pd.to_datetime(df["time"])
-    df = df.sort_values("datetime")
-    generate_dashboard(df)
 
 # My camping location
 LATITUDE = 37.4666
@@ -149,3 +145,8 @@ log_df = pd.DataFrame({
 })
 log_df.to_csv(log_file, mode='a', header=not os.path.isfile(log_file), index=False)
 print(f"Logged current temperature: {current_temp} degrees C at {current_time}")
+
+df = pd.read_csv("daily_log.csv", skipinitialspace=True)
+df["datetime"] = pd.to_datetime(df["time"])
+df = df.sort_values("datetime")
+generate_dashboard(df)
